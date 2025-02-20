@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { useContext } from 'react';
 import { Wrapper } from './Menu.styled';
 import AuthProvider from '../context/AuthProvider';
 import authContext from '../context/authContext';
@@ -8,7 +9,7 @@ import Main from '../pages/Main';
 import Product from './Product';
 import NotFound from '../pages/NotFound';
 import Regiser from '../pages/Register';
-import { useContext } from 'react';
+import Buy from '../pages/Buy';
 
 export default function App() {
   const { emailName } = useContext(authContext);
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="*" element={<NotFound />} />
         <Route path="/register" element={<Regiser />} />
         {emailName && <Route path="/" element={<Main />} />}
+        <Route path=':id' element={<Buy />}/>
       </Routes>
     </Wrapper>
   );
