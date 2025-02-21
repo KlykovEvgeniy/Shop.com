@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { useContext } from 'react';
 import { Wrapper } from './Menu.styled';
-import AuthProvider from '../context/AuthProvider';
 import authContext from '../context/authContext';
 import Menu from './Menu';
 import Shop from '../pages/Shop';
@@ -10,6 +9,7 @@ import Product from './Product';
 import NotFound from '../pages/NotFound';
 import Regiser from '../pages/Register';
 import Buy from '../pages/Buy';
+import Basket from '../pages/Basket';
 
 export default function App() {
   const { emailName } = useContext(authContext);
@@ -25,8 +25,9 @@ export default function App() {
         </Route>
         <Route path="*" element={<NotFound />} />
         <Route path="/register" element={<Regiser />} />
+        <Route path="/basket" element={<Basket />} />
         {emailName && <Route path="/" element={<Main />} />}
-        <Route path=':id' element={<Buy />}/>
+        <Route path=":id" element={<Buy />} />
       </Routes>
     </Wrapper>
   );

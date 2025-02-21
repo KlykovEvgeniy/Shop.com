@@ -27,6 +27,7 @@ export default function Menu() {
             Log Out
           </Link>
         )}
+        {emailName && <Link style={{ textDecoration: 'none', paddingLeft: '15px' }} to='/basket'>Basket</Link>}
       </nav>
     </Header>
   );

@@ -6,8 +6,10 @@ export default function AuthProvider(props) {
   const [passwordName, setPasswordName] = useState(null);
   const [productName, setProductName] = useState(null);
   const [productCost, setProductCost] = useState(null);
+  const [basket, setBasket] = useState([])
 
   const initial = {
+    basket: new Set(basket),
     emailName,
     passwordName,
     productName,
@@ -26,6 +28,16 @@ export default function AuthProvider(props) {
       },
       setProductCost: (cost) => {
         setProductCost(cost);
+      }
+    },
+    basketContent: {
+      addBasket: (newBasket) => {
+        setBasket(prev => {
+          return [...prev, newBasket]
+        })
+      },
+      clearBasket : () => {
+        setBasket([])
       }
     }
   };
